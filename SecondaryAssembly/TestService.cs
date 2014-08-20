@@ -10,7 +10,7 @@ namespace SecondaryAssembly
     {
       public string Secondary()
       {
-        return "secondary";
+        return "secondary #2";
       }
     }
 }

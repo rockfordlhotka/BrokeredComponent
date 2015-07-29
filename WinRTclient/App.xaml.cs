@@ -39,7 +39,7 @@ namespace WinRTclient
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected async override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
 
 #if DEBUG
@@ -48,11 +48,6 @@ namespace WinRTclient
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
-
-            var brokered = new BrokeredComponent.Class();
-            //var data = new byte[] { 22, 43 };
-            var type = typeof(SecondaryAssembly.TestService).AssemblyQualifiedName;
-            var result = await brokered.HelloWorld(type);
 
             Frame rootFrame = Window.Current.Content as Frame;
 

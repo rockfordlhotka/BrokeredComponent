@@ -48,7 +48,7 @@
           <ActivatableClassAttribute
                Name="DesktopApplicationPath"
                Type="string"
-               Value="C:\Users\Rockford\Documents\Visual Studio 2013\Projects\BrokeredComponent\Debug\BrokeredComponentPS"/>
+               Value="C:\Users\Rockford\Documents\repos\BrokeredComponent\serverbin"/>
         </ActivatableClass>
       </InProcessServer>
     </Extension>

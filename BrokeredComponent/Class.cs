@@ -14,33 +14,10 @@ namespace BrokeredComponent
     {
       return Task<string>.Run(async () =>
         {
-          //// use reflection in a way that only works in full .NET
-          //var t = this.GetType();
-          //var m = t.GetMethod("HelloWorld");
-          //return m.Name;
-
-          //var ad = AppDomain.CurrentDomain;
-          //return ad.BaseDirectory;
-
-          await Task.Delay(1000);
-          //return typeName;
-          string result;
-          try
-          {
-            var t = Type.GetType(typeName); //typeof(SecondaryAssembly.TestService).AssemblyQualifiedName);
-            if (t == null)
-              result = "<null>";
-            else
-              result = "client: " + typeName + " server: " + t.AssemblyQualifiedName;
-          }
-          catch (Exception ex)
-          {
-            result = ex.Message;
-          }
-          return result;
-          //var obj = Activator.CreateInstance(t);
-          //var m = t.GetMethod("Secondary");
-          //return (string)m.Invoke(obj, null);
+          var t = Type.GetType("SecondaryAssembly.TestService, SecondaryAssembly"); //typeof(SecondaryAssembly.TestService).AssemblyQualifiedName);
+          var obj = Activator.CreateInstance(t);
+          var m = t.GetMethod("Secondary");
+          return (string)m.Invoke(obj, null);
 
         }).AsAsyncOperation<string>();
     }
